@@ -20,21 +20,59 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/non_ab_device.mk)
 
 ## Inherit from gta4xls device
-$(call inherit-product, device/samsung/gta4xls/device.mk)
+$(call inherit-product, device/samsung/a53x/device.mk)
 
 ## Boot Animation
-TARGET_SCREEN_HEIGHT := 2000
-TARGET_SCREEN_WIDTH := 1200
+TARGET_SCREEN_HEIGHT := 2400
+TARGET_SCREEN_WIDTH := 1080
+TARGET_BOOT_ANIMATION_RES := 1080
 
 ## Inherit some common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common_full_tablet.mk)
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 ## Device identifier, this must come after all inclusions
-PRODUCT_DEVICE := gta4xls
-PRODUCT_NAME := lineage_gta4xls
+PRODUCT_DEVICE := a53x
+PRODUCT_NAME := lineage_a53x
 PRODUCT_BRAND := samsung
-PRODUCT_MODEL := SM-P625
+PRODUCT_MODEL := SM-A536B
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_SHIPPING_API_LEVEL := 34
+
+# Sign
+-include vendor/lineage-priv/keys/keys.mk
+
+# Some flags
+# RisingOS (6.x)
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    RisingChipset="Exynos 1280" \
+    RisingMaintainer="Ksawlii <3"
+
+# Global
+TARGET_ENABLE_BLUR := true
+PRODUCT_NO_CAMERA := false
+TARGET_INCLUDE_PIXEL_CHARGER := true
+EXTRA_UDFPS_ANIMATIONS := true
+TARGET_HAS_FOD := true
+TARGET_HAS_UDFPS := true
+DERP_VERSION_APPEND_TIME_OF_DAY := true
+TARGET_SUPPORTS_QUICK_TAP := true
+
+
+# Gapps
+# WITH_GMS := true
+# TARGET_CORE_GMS := true
+
+# PRODUCT_PACKAGES += \
+#    Photos \
+#    MarkupGoogle \
+#    LatinIMEGooglePrebuilt \
+#    AiWallpapers \
+#    WallpaperEmojiPrebuilt \
+#    PrebuiltDeskClockGoogle \
+#    CalculatorGooglePrebuilt \
+#    CalendarGooglePrebuilt \
+#    Velvet
+# TARGET_CORE_GMS_EXTRAS := true/false
+# TARGET_DEFAULT_PIXEL_LAUNCHER := true
 
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
