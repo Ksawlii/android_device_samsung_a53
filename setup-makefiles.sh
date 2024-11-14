@@ -8,8 +8,8 @@
 
 set -e
 
-export DEVICE=gta4xls
-export DEVICE_COMMON=gta4xls-common
+export DEVICE=a53x
+export DEVICE_COMMON=a53x-common
 export VENDOR=samsung
 
 "./../../${VENDOR}/${DEVICE_COMMON}/setup-makefiles.sh" "$@"

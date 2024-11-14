@@ -14,15 +14,15 @@
 # limitations under the License.
 
 ## Inherit from the common tree
-include device/samsung/gta4xls-common/BoardConfigCommon.mk
+include device/samsung/a53x-common/BoardConfigCommon.mk
 
 ## Inherit from the proprietary configuration
-include vendor/samsung/gta4xls/BoardConfigVendor.mk
+include vendor/samsung/a53x/BoardConfigVendor.mk
 
-DEVICE_PATH := device/samsung/gta4xls
+DEVICE_PATH := device/samsung/a53x
 
 ## Kernel
-TARGET_KERNEL_CONFIG := s5e8825-gta4xls_defconfig
+TARGET_KERNEL_CONFIG := s5e8825-a53xxx_defconfig
 
 ## Manifest
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/device_manifest.xml
